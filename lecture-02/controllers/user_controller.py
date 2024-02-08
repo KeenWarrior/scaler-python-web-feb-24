@@ -14,8 +14,10 @@ users_blueprint = Blueprint("users_blueprint", __name__)
 def create_user():
     body = request.json
     with Session(engine) as session:
-        session.add(User(name=body["name"], email=body["email"]))
-    return "hello"
+        user = User(name=body["name"], email=body["email"])
+        session.add(user)
+        session.commit()
+        return user.to_dict()
 
 
 @users_blueprint.get("/")
