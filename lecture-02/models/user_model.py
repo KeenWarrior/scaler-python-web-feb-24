@@ -5,8 +5,8 @@ from sqlalchemy import String, Column, Integer
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
-    name = Column(String)
-    email = Column(String)
+    name = Column(String(255))
+    email = Column(String(255))
 
     def __repr__(self):
         return "{} {} {}".format(self.id, self.name, self.email)
