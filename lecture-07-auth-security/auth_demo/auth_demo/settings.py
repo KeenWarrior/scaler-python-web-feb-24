@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'auth_demo',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

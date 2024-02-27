@@ -5,17 +5,21 @@ from rest_framework.authentication import BasicAuthentication
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
-from .serializers import UserSerializer
+from .serializers import UserSerializer, TokenSerializer
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
+from rest_framework.authtoken.models import Token
+
 
 class Profile(APIView):
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user: User = request.user
         return Response(UserSerializer(user).data)
+
+
 
 
 class UserView(APIView):
@@ -42,3 +46,18 @@ class UserView(APIView):
             )
 
 
+class AuthView(APIView):
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user: User = request.user
+
+        token = Token.objects.filter(user_id = user.id).first()
+        if token is None:
+            token: Token = Token.objects.create(user=user)
+            token.save()
+
+        return Response(
+            TokenSerializer(token).data
+        )

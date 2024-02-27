@@ -5,7 +5,7 @@ app = Celery(
     broker='amqp://guest@localhost//'
 )
 
-app.send_task("say_hello", args=["Anuj"])
-app.send_task("say_hello", kwargs={
-    "name": "Ravi"
+app.send_task("simple_task", kwargs={
+    "param1": "hello",
+    "param2": "world"
 })

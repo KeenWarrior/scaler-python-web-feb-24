@@ -19,7 +19,7 @@ class UserServie:
     def __init__(
             self,
             user_repo: UserRepo = Provide("user_repo"),
-            session_repo: SessionRepo = Provide("session_repo")
+            session_repo: SessionRepo = Provide("session_repo"),
     ):
         self.user_repo = user_repo
         self.session_repo = session_repo
