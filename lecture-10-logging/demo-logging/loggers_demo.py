@@ -11,6 +11,7 @@ logger2 = Logger(
 
 file_handler = FileHandler(
     filename="another.log",
+    mode="w"
 )
 
 console_handler = StreamHandler()
@@ -23,5 +24,15 @@ logger2.addHandler(file_handler)
 logger2.setLevel(level=logging.WARNING)
 
 
-logger1.warning("Message from logger 1")
-logger2.warning("Message from logger 2")
+logger1.warning("M from logger 1")
+logger2.warning("M from logger 2")
+logger1.warning("M from logger 1")
+logger2.warning("M from logger 2")
+logger1.warning("M from logger 1")
+logger2.warning("M from logger 2")
+logger1.warning("M from logger 1")
+logger2.warning("M from logger 2")
+logger1.warning("M from logger 1")
+logger2.warning("M from logger 2")
+logger1.warning("M from logger 1")
+logger2.warning("M from logger 2")
