@@ -1,0 +1,7 @@
+2024-02-27 19:14:56,046 - root - DEBUG - Hello to logging
+2024-02-27 19:15:23,267 - root - DEBUG - Hello to logging
+2024-02-27 19:15:24,293 - root - DEBUG - Hello to logging
+2024-02-27 19:15:25,063 - root - DEBUG - Hello to logging
+2024-02-27 19:15:25,696 - root - DEBUG - Hello to logging
+2024-02-27 19:18:55,482 - root - WARNING - This is just a debug
+2024-02-27 19:19:12,134 - root - WARNING - This is just a debug
